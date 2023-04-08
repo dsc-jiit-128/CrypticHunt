@@ -32,15 +32,15 @@ BitBox 3.0
 }
 ```
 
-### /api/v1/user/:id
+### /api/v2/user/:id
 if id=0 then give self data
 
-### /api/v1/user/createTeam
+### /api/v2/user/createTeam
 ```
 {
     name: ""
 }
 ```
 
-### /api/v1/user/joinTeam/:id
+### /api/v2/user/joinTeam/:id
 id is team id get it from team leader
