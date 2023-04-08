@@ -1,8 +1,8 @@
 # CrypticHunt
 BitBox 3.0
 
-## Branches
+### Branches
 - backend
 
-## Routes 
+# Routes 
 - (in-progress)
