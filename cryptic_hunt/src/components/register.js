@@ -16,7 +16,7 @@ import {
     useColorModeValue,
   } from '@chakra-ui/react';
   
-  export default function SimpleCard() {
+  export default function Register() {
     return (
         <Flex
       minH={'100vh'}
@@ -25,7 +25,7 @@ import {
       bgColor={'#161515'}>
         <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6} >
           <Stack align={'center'}>
-            <Heading fontSize={'3xl'} fontFamily={'Gilroy-Bold'} color={'white'}>Login to your Account</Heading>
+            <Heading fontSize={'3xl'} fontFamily={'Gilroy-Bold'} color={'white'}>Register a New Account</Heading>
           
           </Stack>
           <Box
@@ -34,6 +34,10 @@ import {
             boxShadow={'lg'}
             p={8}>
             <Stack spacing={4}>
+            <FormControl id="username">
+                <FormLabel>Username</FormLabel>
+                <Input type="username" />
+              </FormControl>
               <FormControl id="email">
                 <FormLabel>Email address</FormLabel>
                 <Input type="email" />
@@ -54,9 +58,9 @@ import {
                 </Button>
               </Stack>
               <HStack>
-              <Text fontFamily={'Gilroy-SemiBold'}> Not a member yet
+              <Text fontFamily={'Gilroy-SemiBold'}> Already a member?
               </Text>
-              <Link color='blue.400' href='/register' >Register Now</Link>
+              <Link color='blue.400' href='/' >Sign-in now</Link>
               </HStack>
             </Stack>
           </Box>
