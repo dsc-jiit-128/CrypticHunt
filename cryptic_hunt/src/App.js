@@ -12,11 +12,13 @@ import {
 } from '@chakra-ui/react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import { Logo } from './Logo';
+import './App.css';
 
 function App() {
   return (
-    <>
+    <><ChakraProvider>
       <Home />
+      </ChakraProvider>
     </>
   );
 }
