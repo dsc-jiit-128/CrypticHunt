@@ -11,6 +11,6 @@ func init() {
 }
 
 func main() {
+	fmt.Println("Hello world")
 	initialize.StartServer()
-	fmt.Println("hello world")
 }

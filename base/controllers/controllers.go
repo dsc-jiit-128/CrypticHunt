@@ -130,17 +130,41 @@ func (uc *Controller) JoinTeam(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, gin.H{"message": "team joined successfully"})
 }
 
-// func (uc *Controller) ListUser(ctx *gin.Context) {
-// 	user, _, _, err := token.ExtractTokenID(ctx)
-// 	if err != nil {
-// 		ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-// 		return
-// 	}
+func (uc *Controller) CheckQuestion(ctx *gin.Context) {
+	id := ctx.Param("id")
 
-// 	data, err := uc.UserService.ListUserFromTeam(user)
-// 	if err != nil {
-// 		ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-// 		return
-// 	}
-// 	ctx.JSON(http.StatusOK, gin.H{"message": "success", "data": data})
-// }
+	user_id, _, _, err := token.ExtractTokenID(ctx)
+	if err != nil {
+		ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	var question models.Question
+	if err := ctx.ShouldBindJSON(&question); err != nil {
+		ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	err = uc.UserService.CheckQuestionAns(user_id, id, question.Answer)
+	if err != nil {
+		ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	ctx.JSON(http.StatusOK, gin.H{"message": "CONGRATULATIONS, correct answer"})
+}
+
+func (uc *Controller) TeamLeaderboard(ctx *gin.Context) {
+	user, _, _, err := token.ExtractTokenID(ctx)
+	if err != nil {
+		ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	data, err := uc.UserService.TeamLeaderboardData(user)
+	if err != nil {
+		ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+	ctx.JSON(http.StatusOK, gin.H{"message": "success", "data": data})
+}

@@ -10,5 +10,6 @@ type Service interface {
 	GetUserByID(string) (*models.User, error)
 	CreateNewTeam(*models.Team, string) error
 	JoinNewTeam(string, string) error
-	// ListUserFromTeam(string) ([]*models.User, error)
+	TeamLeaderboardData(string) (map[string]interface{}, error)
+	CheckQuestionAns(string, string, string) error
 }

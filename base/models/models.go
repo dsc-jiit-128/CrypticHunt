@@ -39,7 +39,7 @@ type Solution struct {
 
 type Question struct {
 	QuestionID string `json:"_id" bson:"_id"`
-	Answer     string `json:"answer" bson:"answer"`
+	Answer     string `json:"answer" bson:"answer" binding:"required"`
 }
 
 type Login struct {

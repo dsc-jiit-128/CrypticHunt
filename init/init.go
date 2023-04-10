@@ -25,6 +25,7 @@ var (
 	userc *mongo.Collection
 	teamc *mongo.Collection
 	solc  *mongo.Collection
+	quec  *mongo.Collection
 
 	rs routes.RouterService
 
@@ -34,7 +35,7 @@ var (
 )
 
 func InitializeSetup() {
-	err := godotenv.Load()
+	err = godotenv.Load()
 	if err != nil {
 		log.Fatalf("err loading: %v", err)
 	}
@@ -56,8 +57,9 @@ func InitializeSetup() {
 	teamc = mongoclient.Database("cryptic-golang").Collection("teams")
 	userc = mongoclient.Database("cryptic-golang").Collection("users")
 	solc = mongoclient.Database("cryptic-golang").Collection("solutions")
+	quec = mongoclient.Database("cryptic-golang").Collection("questions")
 
-	us = services.NewService(solc, userc, teamc, ctx)
+	us = services.NewService(solc, userc, teamc, quec, ctx)
 	uc = controllers.New(us)
 
 	rs = routes.NewRouterService(uc)

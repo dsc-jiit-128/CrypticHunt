@@ -16,14 +16,14 @@ BitBox 3.0
 ## API's
 - v1 -> without authentication
 - v2 -> jwt authentication required
-### /api/v1/user/login
+### [POST] /api/v1/user/login
 ```
 {
     user_name: "",
     password: ""
 }
 ```
-### /api/v1/user/register
+### [POST] /api/v1/user/register
 ```
 {
     user_name: "",
@@ -32,15 +32,24 @@ BitBox 3.0
 }
 ```
 
-### /api/v2/user/:id
+### [GET] /api/v2/user/:id
 if id=0 then give self data
 
-### /api/v2/user/createTeam
+### [POST] /api/v2/user/createTeam
 ```
 {
     name: ""
 }
 ```
 
-### /api/v2/user/joinTeam/:id
+### [POST] /api/v2/user/joinTeam/:id
 id is team id get it from team leader
+
+### [POST] /api/v2/question/:id
+```
+{
+    answer: ""
+}
+```
+
+### [GET] /api/v2/team/leaderboard

@@ -39,14 +39,14 @@ func (rs *RouterService) RegisterRoutes(rg *gin.RouterGroup) {
 			userGroup.POST("/joinTeam/:id", rs.Controller.JoinTeam)
 		}
 
-		// teamGroup := jwtGroup.Group("/team")
-		// {
-		// 	teamGroup.POST("/", rs.Controller.CreateOrg)
-		// }
+		teamGroup := jwtGroup.Group("/team")
+		{
+			teamGroup.GET("/leaderboard", rs.Controller.TeamLeaderboard)
+		}
 
-		// questionGroup := jwtGroup.Group("/question")
-		// {
-		// 	questionGroup.POST("/:id", rs.Controller.CreateOrg)
-		// }
+		questionGroup := jwtGroup.Group("/question")
+		{
+			questionGroup.POST("/:id", rs.Controller.CheckQuestion)
+		}
 	}
 }
