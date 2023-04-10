@@ -12,6 +12,7 @@ import Register from './Pages/Register';
 import Team from './Pages/NewTeam';
 import Question from './Pages/Question1';
 import Question2 from './Pages/Q2';
+import Leaderboard from './Pages/Leaderboard';
 const Q2= () => {
   if (window.location.pathname === "/Q2") {
     return <Question2 />
@@ -42,7 +43,9 @@ function App() {
 {
   <Route path="/question2" exact component={Question2} />
 }
-
+{
+  <Route path="/leaderboard" exact component={Leaderboard} />
+}
       
     </ChakraProvider>
     </>
