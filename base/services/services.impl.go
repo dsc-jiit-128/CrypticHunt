@@ -187,28 +187,28 @@ func (u *ServiceImpl) JoinNewTeam(user string, joinid string) error {
 	query = bson.D{bson.E{Key: "team", Value: userFound.Team}}
 	cursor, err := u.usercollection.Find(u.ctx, query)
 	if err != nil {
-		return nil, err
+		return err
 	}
 	for cursor.Next(u.ctx) {
 		var user models.User
 		err := cursor.Decode(&user)
 		if err != nil {
-			return nil, err
+			return err
 		}
 		user.Password = "**PROTECTED**"
 		users = append(users, &user)
 	}
 
 	if err := cursor.Err(); err != nil {
-		return nil, err
+		return err
 	}
 
 	err = cursor.Close(u.ctx)
 	if err != nil {
-		return nil, err
+		return err
 	}
 	if len(users) > 5 {
-		return nil, errors.New("documents not found")
+		return errors.New("Max number of team members reached")
 	}
 
 	joinobjectid, err := primitive.ObjectIDFromHex(joinid)
