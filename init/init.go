@@ -66,12 +66,14 @@ func InitializeSetup() {
 	rs = routes.NewRouterService(uc)
 
 	server = gin.Default()
-	server.Use(cors.New(cors.Config{
-        AllowOrigins:     []string{"*"},
-        AllowMethods:     []string{"POST", "GET"},
-        AllowCredentials: true,
-    }))
-	server.SetTrustedProxies(nil)
+	// server.Use(cors.New(cors.Config{
+    //     AllowOrigins:     []string{"*"},
+    //     AllowMethods:     []string{"POST", "GET"},
+    //     AllowCredentials: true,
+    // }))
+	// server.SetTrustedProxies(nil)
+	server.Use(cors.Default())
+
 }
 
 func StartServer() {
