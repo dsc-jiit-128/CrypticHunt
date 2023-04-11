@@ -8,7 +8,7 @@ import (
 )
 
 func init() {
-	initialize.InitializeSetup()
+	initialize.InitializeSetup() 
 }
 
 func main() {
