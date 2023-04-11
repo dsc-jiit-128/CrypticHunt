@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"time"
 
 	"CrypticHunt/Backend/Sandhu-Sahil/base/controllers"
 	"CrypticHunt/Backend/Sandhu-Sahil/base/routes"
@@ -72,8 +73,18 @@ func InitializeSetup() {
     //     AllowCredentials: true,
     // }))
 	// server.SetTrustedProxies(nil)
-	server.Use(cors.Default())
-
+	// server.Use(cors.Default())
+	server.Use(cors.New(cors.Config{
+		AllowOrigins:     []string{"*"},
+		AllowMethods:     []string{"GET", "POST"},
+		AllowHeaders:     []string{"Origin"},
+		ExposeHeaders:    []string{"Content-Length"},
+		AllowCredentials: true,
+		AllowOriginFunc: func(origin string) bool {
+		  return origin == "https://github.com"
+		},
+		MaxAge: 12 * time.Hour,
+	  }))
 }
 
 func StartServer() {
