@@ -23,9 +23,9 @@ import {
       align={'center'}
       justify={'center'}
       bgColor={'#161515'}>
-        <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6} >
+        <Stack spacing={4} mx={'auto'} maxW={'lg'} py={12} px={6} >
           <Stack align={'center'}>
-            <Heading fontSize={'3xl'} fontFamily={'Gilroy-Bold'} color={'white'}>Register a New Account</Heading>
+            <Heading fontSize={'2.5xl'} fontFamily={'Gilroy-Bold'} color={'white'}>Register a New Account</Heading>
           
           </Stack>
           <Box
@@ -33,7 +33,7 @@ import {
             bg={useColorModeValue('white', 'gray.700')}
             boxShadow={'lg'}
             p={8}>
-            <Stack spacing={4}>
+            <Stack spacing={2}>
             <FormControl id="username">
                 <FormLabel>Username</FormLabel>
                 <Input type="username" />

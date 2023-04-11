@@ -6,11 +6,14 @@ import '../App.css';
 export default function Home() {
   return (
     <>
-    <Flex  align='center'   h='100vh' 
-    bgImage={'url(/back.png)'} justifyContent={'space-between'} bgRepeat='no-repeat' bgSize='cover' bgPosition='center'>
+    <Flex  align='center'   
+    bgImage={'url(/back.png)'} 
+    flexDirection={{base:'column',md:'row'}}
+    justifyContent={'space-between'} bgRepeat='no-repeat' bgSize='cover' bgPosition='center'         overflowY="hidden"
+    >
     
-      <Box  ml={'50'} > 
-      <Text fontFamily={'Anurati'} align={'left'}  ml={100} mt={-100}
+      <Box   > 
+      <Text fontFamily={'Anurati'} align={'left'}  ml={{base:30,md:100}} mt={{base:-200,md:-100}}
       alignItems={'left'} justifyContent={'left'}  
       color={'white'} fontSize={'8vw'}>C I PHER<br></br>DASH</Text>
       <br></br><br></br><br></br><br></br>
@@ -20,7 +23,7 @@ export default function Home() {
       
 
 </Box>
-    <Box justifyContent={'right'} justify={'right'} bgColor={'#161515'} h='100vh'>
+    <Box  bgColor={'#161515'} overflowY="hidden"  >
       <SimpleCard />
 
       </Box>

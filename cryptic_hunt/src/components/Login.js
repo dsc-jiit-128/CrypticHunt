@@ -18,12 +18,15 @@ import {
   
   export default function SimpleCard() {
     return (
+
+      
         <Flex
       minH={'100vh'}
+      
       align={'center'}
       justify={'center'}
       bgColor={'#161515'}>
-        <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6} >
+        <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6} maxH={{base:'100vh'}}>
           <Stack align={'center'}>
             <Heading fontSize={'3xl'} fontFamily={'Gilroy-Bold'} color={'white'}>Login to your Account</Heading>
           
