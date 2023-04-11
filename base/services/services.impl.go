@@ -287,10 +287,18 @@ func (u *ServiceImpl) TeamLeaderboardData(user string) (map[string]interface{}, 
 		return nil, err
 	}
 
+	query = bson.D{bson.E{Key: "_id", Value: userFound.Team}}
+	var teamData *models.Team
+	err = u.teamcollection.FindOne(u.ctx, query).Decode(&teamData)
+	if err != nil {
+		return nil, err
+	}
+
 	data := map[string]interface{}{
 		"user":      userFound,
 		"team":      users,
 		"solutions": solutions,
+		"teamData": teamData,
 	}
 	return data, nil
 }
