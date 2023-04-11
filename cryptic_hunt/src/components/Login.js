@@ -19,8 +19,16 @@ import {
 
       
         <Box
-      minH={'100vh'}
+        overflowY="hidden"
      
+      h={{md:'100vh',base:'700'}}
+     mt={{md:'0',base:'10vh'}}
+     mb={{md:'0',base:'10vh'}}
+     ml={{md:'0',base:'5vh'}}
+     mr={{md:'0',base:'5vh'}}
+borderRadius="20"
+
+
       align={'center'}
       justify={'center'}
       bgColor={'#161515'}

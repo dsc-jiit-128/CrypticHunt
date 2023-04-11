@@ -18,11 +18,22 @@ import {
   
   export default function Teamcomp() {
     return (
-        <Flex
-      minH={'100vh'}
-      align={'center'}
-      justify={'center'}
-      bgColor={'#161515'}>
+ 
+      <Box
+      overflowY="hidden"
+   
+    h={{md:'100vh',base:'700'}}
+   mt={{md:'0',base:'10vh'}}
+   mb={{md:'0',base:'10vh'}}
+   ml={{md:'0',base:'5vh'}}
+   mr={{md:'0',base:'5vh'}}
+borderRadius="20"
+
+
+    align={'center'}
+    justify={'center'}
+    bgColor={'#161515'}
+    >
         <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6} >
           <Stack align={'center'}>
             <Heading fontSize={'3xl'} fontFamily={'Gilroy-Bold'} color={'white'}>Enroll yourself in a team</Heading>
@@ -70,6 +81,6 @@ import {
             </Stack>
           </Box>
         </Stack>
-        </Flex>
+        </Box>
     );
   }
