@@ -15,6 +15,7 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"go.mongodb.org/mongo-driver/mongo/readpref"
+	"github.com/gin-contrib/cors"
 )
 
 var (
@@ -65,6 +66,11 @@ func InitializeSetup() {
 	rs = routes.NewRouterService(uc)
 
 	server = gin.Default()
+	server.Use(cors.New(cors.Config{
+        AllowOrigins:     []string{"*"},
+        AllowMethods:     []string{"POST", "GET"},
+        AllowCredentials: true,
+    }))
 	server.SetTrustedProxies(nil)
 }
 
