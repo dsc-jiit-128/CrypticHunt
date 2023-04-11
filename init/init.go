@@ -77,8 +77,8 @@ func InitializeSetup() {
 	server.Use(cors.New(cors.Config{
 		AllowOrigins:     []string{"*"},
 		AllowMethods:     []string{"GET", "POST"},
-		AllowHeaders:     []string{"Authorization"},
-		ExposeHeaders:    []string{"Content-Length"},
+		AllowHeaders:     []string{"*"},
+		ExposeHeaders:    []string{"*"},
 		AllowCredentials: true,
 		AllowOriginFunc: func(origin string) bool {
 		  return origin == "https://github.com"
