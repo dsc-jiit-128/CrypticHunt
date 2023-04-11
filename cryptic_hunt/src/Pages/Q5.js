@@ -46,33 +46,9 @@ fontFamily="Gilroy-Black"
 
 
 >
-Question 5: Universal Truth- mIt was Ambitious, It was phased out 
+How do I get to know which accounts my friends use using what package?
+Think :OSINT Github
 <br></br>
-
-
-
-
-</Text>
-<Text
-as="span"
-color="black"
-align={'left'}
-verticalAlign={'top'}
-textAlign={'left'}
-justify={'left'}
-justifyContent={'left'}
-
-p={5}
-fontSize={{ base: '1vw', md: 'lg' }}
-
-fontFamily="Gilroy-Medium"
-
-
->
-AE<br></br>
-AM <br></br>
-
-
 
 
 

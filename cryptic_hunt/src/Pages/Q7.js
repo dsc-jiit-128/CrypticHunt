@@ -1,6 +1,6 @@
 import React from 'react';
 import ChakraProvider from '@chakra-ui/react';
-import { Box,Link ,Flex,Text,VStack,Stack,Textarea,Button,Input} from '@chakra-ui/react';
+import { Box,Link ,Flex,Text,VStack,Stack,Textarea,Button,Input,Image} from '@chakra-ui/react';
 import '../App.css';
 export default function Question3() {
   return (
@@ -16,7 +16,7 @@ export default function Question3() {
 backdropFilter={'blur(10px)'}
 
 w={700}
-h={300}
+h={420}
 alignContent="center"
 alignSelf={'center'}
 //bg="linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url(your-image-url)"
@@ -46,12 +46,15 @@ fontFamily="Gilroy-Black"
 
 
 >
-Question 3)
-You’ve bit off more than you can chew. But exploring this island cave without light might be a bad idea. Stumbling forward in the dark, you wonder what you’ll find…
-
-52, 46, 32, 60, 38, 54
+Question 7: Not Threatening 
 
 
+<Image
+src="/q7img.png"
+alt="Picture of the author"
+w={'40%'}
+m={'auto'}
+/>
 
 
 </Text>

@@ -18,8 +18,7 @@ import Question5 from './Pages/Q5';
 import Question6 from './Pages/Q6';
 import Question7 from './Pages/Q7';
 import Question8 from './Pages/Q8';
-import Question9 from './Pages/Q9';
-import Question10 from './Pages/Q10';
+
 import Leaderboard from './Pages/Leaderboard';
 const Q2= () => {
   if (window.location.pathname === "/Q2") {
@@ -48,24 +47,15 @@ const Q6= () => {
 }
 const Q7= () => {
   if (window.location.pathname === "/Q7") {
-    return <Question3 />
+    return <Question7 />
   }
 }
 const Q8= () => {
   if (window.location.pathname === "/Q8") {
-    return <Question3 />
+    return <Question8 />
   }
 }
-const Q9= () => {
-  if (window.location.pathname === "/Q9") {
-    return <Question3 />
-  }
-}
-const Q10= () => {
-  if (window.location.pathname === "/Q10") {
-    return <Question10 />
-  }
-}
+
 
 function App() {
   return (
@@ -79,8 +69,7 @@ function App() {
     {Q6()}
     {Q7()}
     {Q8()}
-    {Q9()}
-    {Q10()}
+   
       
      {
 

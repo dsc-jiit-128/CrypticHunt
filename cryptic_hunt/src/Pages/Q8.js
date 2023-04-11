@@ -2,7 +2,7 @@ import React from 'react';
 import ChakraProvider from '@chakra-ui/react';
 import { Box,Link ,Flex,Text,VStack,Stack,Textarea,Button,Input} from '@chakra-ui/react';
 import '../App.css';
-export default function Question3() {
+export default function Question8() {
   return (
     <>
     <Flex  align='center'   h='100vh' 
@@ -46,11 +46,8 @@ fontFamily="Gilroy-Black"
 
 
 >
-Question 3)
-You’ve bit off more than you can chew. But exploring this island cave without light might be a bad idea. Stumbling forward in the dark, you wonder what you’ll find…
-
-52, 46, 32, 60, 38, 54
-
+Question 8:
+<br/> I wish I could download all the best quality songs from youtube (youtube-dl) like a zombie so that i can listen till the end of playlist 
 
 
 
