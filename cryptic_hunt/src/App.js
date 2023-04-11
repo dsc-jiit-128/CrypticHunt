@@ -4,10 +4,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 import { Box } from '@chakra-ui/react';
 import './App.css';
 import { Route,Switch,Redirect } from 'react-router-dom';
-
-
-
-import Home from './Pages/Home';
+import Home1 from './Pages/Home';
 import Register from './Pages/Register';
 import Team from './Pages/NewTeam';
 import Question from './Pages/Question1';
@@ -73,7 +70,7 @@ function App() {
       
      {
 
-      <Route path="/" exact component={Home} />
+      <Route path="/" exact component={Home1} />
       
       }
 {

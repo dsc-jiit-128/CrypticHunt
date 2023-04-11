@@ -3,7 +3,7 @@ import SimpleCard from '../components/Login';
 import ChakraProvider from '@chakra-ui/react';
 import { Box,Link ,Flex,Text} from '@chakra-ui/react';
 import '../App.css';
-export default function Home() {
+export default function Home1() {
   return (
     <>
     <Flex  align='center'   
