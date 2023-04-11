@@ -35,10 +35,13 @@ export default function SimpleCard() {
         password: password,
       });
       const token = response.data.data.token;
+      const team = response.data.data.isteam;
       localStorage.setItem('token', token);
       console.log(response);
-      if (response.data.message === 'Login verified') {
+      if (response.data.message === 'Login verified' && team === false) {
         history.push('/team');
+      } else if (response.data.message === 'Login verified' && team ===true) {
+        history.push('/leaderboard');
       } else if (response.data.message === 'User already exists') {
         history.push('/login');
       } else {
