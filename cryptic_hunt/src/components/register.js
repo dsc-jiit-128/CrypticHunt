@@ -160,12 +160,12 @@ export default function Register() {
                 Sign in
               </Button>
             </Stack>
-            <HStack>
+            <Flex flexDirection={'column'}>
               <Text fontFamily={'Gilroy-SemiBold'}> Already a member?</Text>
               <Link color="blue.400" href="/">
                 Sign-in now
               </Link>
-            </HStack>
+            </Flex>
           </Stack>
         </Box>
       </Stack>

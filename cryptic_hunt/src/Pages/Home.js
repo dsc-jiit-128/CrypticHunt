@@ -15,14 +15,14 @@ function Home1() {
     justifyContent={'space-between'} bgRepeat='no-repeat' bgSize='cover' bgPosition='center'  
     >
     
-      <Box   > 
-      <Text fontFamily={'Anurati'} align={'left'}  ml={{base:100,md:100}} mt={{base:50,md:-100}}
-      alignItems={'left'} justifyContent={'left'}  
-      mb={{base:10,md:0}}
+      <Box   justifyContent={'center'}  >
+      <Text fontFamily={'Anurati'}   ml={{base:0,md:100}} mt={{base:50,md:-100}}
+      mb={{base:10,md:0}} mr={{base:50,md:0}} align={{'base':'center','md':'left'}}
+  
       color={'white'} fontSize={{base:'15vw',md:'8vw'}}>C I PHER<br></br>DASH</Text>
       <br></br><br></br><br></br><br></br>
-      <Text fontFamily={'Momcake'} align={'left'}  ml={100} mt={-100}
-      alignItems={'left'} justifyContent={'left'}  letterSpacing={10}
+      <Text fontFamily={'Momcake'} justifyContent={{'base':'center','md':'left'}}   ml={{base:5,md:100}} mt={-100}
+      alignItems={'left'}  letterSpacing={10}  mb={10}
       color={'white'} fontSize={{base:'5vw',md:'2vw'}}>DO YOU HAVE WHAT IT TAKES? </Text>
       
 

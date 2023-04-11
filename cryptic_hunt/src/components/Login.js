@@ -108,12 +108,12 @@ export default function SimpleCard() {
                   Sign in
                 </Button>
               </Stack>
-              <HStack>
-                <Text fontFamily={'Gilroy-SemiBold'}> Not a member yet</Text>
+              <Flex flexDirection={'column'}>
+                <Text fontFamily={'Gilroy-SemiBold'}> Not a member yet?</Text>
                 <Link color="blue.400" href="/register">
                   Register Now
                 </Link>
-              </HStack>
+              </Flex>
             </Stack>
           </Box>
         </Stack>
