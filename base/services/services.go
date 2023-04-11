@@ -5,7 +5,7 @@ import (
 )
 
 type Service interface {
-	LoginUser(*models.Login) (string, error)
+	LoginUser(*models.Login) (string, bool, error)
 	RegisterUser(*models.User) (string, error)
 	GetUserByID(string) (*models.User, error)
 	CreateNewTeam(*models.Team, string) error

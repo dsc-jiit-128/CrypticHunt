@@ -93,25 +93,29 @@ func (u *ServiceImpl) RegisterUser(user *models.User) (string, error) {
 	return token, nil
 }
 
-func (u *ServiceImpl) LoginUser(user *models.Login) (string, error) {
+func (u *ServiceImpl) LoginUser(user *models.Login) (string, bool, error) {
 	var userFound *models.User
 	query := bson.D{bson.E{Key: "user_name", Value: user.UserName}}
 	err := u.usercollection.FindOne(u.ctx, query).Decode(&userFound)
 	if err != nil {
-		return "", err
+		return "", false, err
 	}
 
 	err = bcrypt.CompareHashAndPassword([]byte(userFound.Password), []byte(user.Password))
 	if err != nil {
-		return "", err
+		return "", false, err
 	}
 
 	token, err := token.GenerateToken(userFound.ID.Hex(), user.UserName, userFound.Role, userFound.Team.Hex())
 	if err != nil {
-		return "", err
+		return "", false, err
+	}
+	var team = true
+	if userFound.Team.IsZero() {
+		team = false
 	}
 
-	return token, err
+	return token, team, err
 }
 
 func (u *ServiceImpl) CreateNewTeam(team *models.Team, leader string) error {

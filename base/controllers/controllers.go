@@ -29,13 +29,14 @@ func (uc *Controller) Login(ctx *gin.Context) {
 		return
 	}
 
-	token, err := uc.UserService.LoginUser(&user)
+	token, team, err := uc.UserService.LoginUser(&user)
 	if err != nil {
 		ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
-	data := map[string]string{
+	data := map[string]interface{}{
 		"token": token,
+		"isteam": team,
 	}
 	ctx.JSON(http.StatusOK, gin.H{"message": "Login verified", "data": data})
 }
