@@ -183,6 +183,34 @@ func (u *ServiceImpl) JoinNewTeam(user string, joinid string) error {
 		return errors.New("you are member to some team, You can't join another team, to join a team create a new account")
 	}
 
+	var users []*models.User
+	query = bson.D{bson.E{Key: "team", Value: userFound.Team}}
+	cursor, err := u.usercollection.Find(u.ctx, query)
+	if err != nil {
+		return nil, err
+	}
+	for cursor.Next(u.ctx) {
+		var user models.User
+		err := cursor.Decode(&user)
+		if err != nil {
+			return nil, err
+		}
+		user.Password = "**PROTECTED**"
+		users = append(users, &user)
+	}
+
+	if err := cursor.Err(); err != nil {
+		return nil, err
+	}
+
+	err = cursor.Close(u.ctx)
+	if err != nil {
+		return nil, err
+	}
+	if len(users) > 5 {
+		return nil, errors.New("documents not found")
+	}
+
 	joinobjectid, err := primitive.ObjectIDFromHex(joinid)
 	if err != nil {
 		return err
