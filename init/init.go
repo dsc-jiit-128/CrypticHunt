@@ -75,5 +75,5 @@ func StartServer() {
 
 	rs.RegisterRoutes(api)
 
-	log.Fatal(server.Run(":8080"))
+	log.Fatal(server.Run(os.Getenv("PORT") || "8080"))
 }
