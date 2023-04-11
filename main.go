@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	initialize "CrypticHunt/Backend/Sandhu-Sahil/init"
+	_ "github.com/heroku/x/hmetrics/onload"
 )
 
 func init() {
