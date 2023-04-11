@@ -1,6 +1,6 @@
 import React from 'react';
 import ChakraProvider from '@chakra-ui/react';
-import { Box,Link ,Flex,Text,VStack,Stack,Textarea,Button,Input} from '@chakra-ui/react';
+import { Box,Link ,Flex,Text,VStack,Stack,Textarea,Button,Input,Image} from '@chakra-ui/react';
 import '../App.css';
 export default function Question3() {
   return (
@@ -16,7 +16,7 @@ export default function Question3() {
 backdropFilter={'blur(10px)'}
 
 w={700}
-h={300}
+h={420}
 alignContent="center"
 alignSelf={'center'}
 //bg="linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url(your-image-url)"
@@ -49,6 +49,12 @@ fontFamily="Gilroy-Black"
 Blocks don’t mean blocks
 
 
+<Image 
+src="/q4img.png"
+alt="Picture of the author"
+w={'50%'}
+m={'auto'}
+/>
 
 
 
@@ -57,7 +63,7 @@ Blocks don’t mean blocks
 </Flex>
 
 
-<Stack spacing={10}>
+<Stack spacing={5}>
 
 <Input 
   variant='filled' placeholder="Enter your answer here"/>
@@ -68,7 +74,7 @@ Blocks don’t mean blocks
 align={'center'} justify={'center'} justifyContent={'center'}
 h={8}
 
-
+mt={-5}
 borderRadius={20}
 fontFamily="Gilroy-Medium"
 fontSize={15}
