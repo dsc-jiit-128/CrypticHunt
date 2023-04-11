@@ -1,1 +1,1 @@
-web: CrypticHunt/Backend/Sandhu-Sahil
+web: make dev
