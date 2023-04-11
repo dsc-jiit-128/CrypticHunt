@@ -43,7 +43,7 @@ const Q5= () => {
 }
 const Q6= () => {
   if (window.location.pathname === "/Q6") {
-    return <Question3 />
+    return <Question6 />
   }
 }
 const Q7= () => {
