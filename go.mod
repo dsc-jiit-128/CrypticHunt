@@ -5,6 +5,7 @@ go 1.19
 require (
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/gin-gonic/gin v1.9.0
+	github.com/heroku/x v0.0.57
 	github.com/joho/godotenv v1.5.1
 	go.mongodb.org/mongo-driver v1.11.4
 	golang.org/x/crypto v0.8.0
@@ -19,7 +20,6 @@ require (
 	github.com/go-playground/validator/v10 v10.11.2 // indirect
 	github.com/goccy/go-json v0.10.0 // indirect
 	github.com/golang/snappy v0.0.1 // indirect
-	github.com/heroku/x v0.0.57 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/klauspost/compress v1.13.6 // indirect
 	github.com/klauspost/cpuid/v2 v2.0.9 // indirect
