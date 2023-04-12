@@ -9,6 +9,7 @@ import {
   Button,
   Heading,
   Text,
+  useToast,
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import axios from 'axios';
@@ -20,6 +21,7 @@ export default function Teamcomp() {
   const [teamcode, setTeamcode] = useState('');
   const token = localStorage.getItem('token');
   const history = useHistory();
+  const toast = useToast();
   const handleCreateTeamClick = async event => {
     event.preventDefault();
     try {
@@ -36,31 +38,89 @@ export default function Teamcomp() {
       );
       console.log(response);
       console.log(response.data.message);
-      if (response.data.message === 'team created successfully') {
+      if(response.status === 200){
+        toast({
+          title: 'Team Created',
+          description: 'Team Created Successfully',
+          status: 'success',
+          duration: 5000,
+          isClosable: true,
+        });
         history.push('/leaderboard');
       }
+      else{
+        toast({
+          title: 'Error',
+          description: response.data.error,
+          status: 'error',
+          duration: 5000,
+          isClosable: true,
+        });
+      }
+
       return response.data;
     } catch (error) {
       console.error(error);
+      toast({
+        title: 'Error',
+        description: error.response.data.error,
+        status: 'error',
+        duration: 5000,
+        isClosable: true,
+      });
+
+      
+
     }
   };
   const handleJoinTeamClick = async event => {
     event.preventDefault();
     console.log(teamcode);
-    const response = await axios.post(
-      `/api/v2/user/joinTeam/${teamcode}`,
-      {},
-      {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`,
-        },
-      }
-    );
-    console.log(response);
-    console.log(response.data.message);
-    if (response.data.message === 'team joined successfully') {
-      history.push('/leaderboard');
+    if(teamcode === ''){
+      toast({
+        title: 'Error',
+        description: 'Team Code cannot be empty',
+        status: 'error',
+        duration: 5000,
+        isClosable: true,
+      });
+      return;
     }
+    try{
+      const response = await axios.post(
+        `/api/v2/user/joinTeam/${teamcode}`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        }
+      );
+      console.log(response);
+      console.log(response.data.message);
+      if(response.status === 200){
+        toast({
+          title: 'Team Joined',
+          description: 'Team Joined Successfully',
+          status: 'success',
+          duration: 5000,
+          isClosable: true,
+        });
+        history.push('/leaderboard');
+      }
+    }
+    catch(error){
+      console.error(error);
+      toast({
+        title: 'Error',
+        description: error.response.data.error,
+        status: 'error',
+        duration: 5000,
+        isClosable: true,
+      });
+    }
+    
+    
   };
 
   return (

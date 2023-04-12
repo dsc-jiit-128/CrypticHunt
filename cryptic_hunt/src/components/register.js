@@ -12,7 +12,9 @@ import {
   Heading,
   Text,
   useColorModeValue,
+  useToast,
 } from '@chakra-ui/react';
+
 import React, { useState } from 'react';
 import axios from 'axios';
 // import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
@@ -27,6 +29,7 @@ export default function Register() {
   const [isEmailClicked, setIsEmailClicked] = useState(false);
   const [isPasswordClicked, setIsPasswordClicked] = useState(false);
   const [error, setError] = useState('');
+  const toast = useToast();
 
   const handleEmailChange = e => {
     const value = e.target.value;
@@ -57,6 +60,36 @@ export default function Register() {
     console.log(username);
     console.log(email);
     console.log(password);
+    if(!isEmailValid){
+      toast({
+        title: 'Error',
+        description: 'Invalid Email',
+        status: 'error',
+        duration: 5000,
+        isClosable: true,
+      });
+      return;
+    }
+    if(!isPasswordValid){
+      toast({
+        title: 'Error',
+        description: 'Password must contain atleast 8 characters, 1 uppercase, 1 lowercase and 1 number and special character',
+        status: 'error',
+        duration: 5000,
+        isClosable: true,
+      });
+      return;
+    }
+    if(username === ''){
+      toast({
+        title: 'Error',
+        description: 'Invalid Username',
+        status: 'error',
+        duration: 5000,
+        isClosable: true,
+      });
+      return;
+    }
     try {
       const response = await axios.post('/api/v1/user/register', {
         user_name: username,
@@ -66,18 +99,32 @@ export default function Register() {
       const token = response.data.data.token;
       localStorage.setItem('token', token);
       console.log(response.data.message);
-      if (response.data.message === 'Registration success') {
+      //response status code
+      if(response.status === 200){
         history.push('/team');
-      } else if (response.data.message === 'User already exists') {
-        history.push('/login');
-      } else {
-        // Handle other messages
+      }
+      else{
+        //toast error 
+        toast({
+          title: 'Error',
+          description: response.data.error,
+          status: 'error',
+          duration: 5000,
+          isClosable: true,
+        });
       }
       // handle success, e.g. redirect to dashboard page
       // console.log(response.data.token);
     } catch (err) {
       // handle error, e.g. display error message to user
       setError(err.response.data.error);
+      toast({
+        title: 'Error',
+        description: err.response.data.error,
+        status: 'error',
+        duration: 5000,
+        isClosable: true,
+      });
       // console.log(err.response.data);
     }
   };

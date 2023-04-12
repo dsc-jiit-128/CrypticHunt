@@ -12,13 +12,18 @@ import {
   Heading,
   Text,
   useColorModeValue,
+  useToast,
 } from '@chakra-ui/react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import React, { useState } from 'react';
 
+
 export default function SimpleCard() {
+  const toast = useToast();
   axios.defaults.baseURL = 'https://cypher-dash.herokuapp.com/';
+
+
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -46,11 +51,26 @@ export default function SimpleCard() {
         history.push('/login');
       } else {
         // Handle other messages
+        toast({
+          title: 'Error',
+          description: 'Invalid Credentials',
+          status: 'error',
+          duration: 5000,
+          isClosable: true,
+        });
+
       }
       // console.log(response?.data?.data?.token);
       console.log(response.data.message); // handle successful response
     } catch (error) {
       console.log(error); // handle error
+      toast({
+        title: 'Error',
+        description: 'Invalid Credentials',
+        status: 'error',
+        duration: 5000,
+        isClosable: true,
+      });
     }
   };
 

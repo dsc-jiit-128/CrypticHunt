@@ -1,9 +1,13 @@
 import React from 'react';
 import SimpleCard from '../components/Login';
-import ChakraProvider from '@chakra-ui/react';
+import ChakraProvider, { useToast } from '@chakra-ui/react';
 import { Box,Link ,Flex,Text} from '@chakra-ui/react';
+
 import '../App.css';
 function Home1() {
+
+  const toast = useToast();
+  
   return (
     <>
     <Flex  align='center'   
