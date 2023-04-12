@@ -20,7 +20,7 @@ function Home1() {
     >
     
       <Box   justifyContent={'center'}  >
-      <Text fontFamily={'Anurati'}   ml={{base:0,md:100}} mt={{base:50,md:-100}}
+      <Text fontFamily={'Anurati'}   ml={{base:50,md:100}} mt={{base:50,md:-100}}
       mb={{base:10,md:0}} mr={{base:50,md:0}} align={{'base':'center','md':'left'}}
   
       color={'white'} fontSize={{base:'15vw',md:'8vw'}}>C I PHER<br></br>DASH</Text>
