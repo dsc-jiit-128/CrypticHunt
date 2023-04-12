@@ -83,7 +83,7 @@ export default function Leaderboard() {
   const [isLargerThan768] = useMediaQuery("(min-width: 768px)");
   return (
     <Box p={8} bgColor={'#161615'} h="100vh" w="100vw"
-      overflow={'hidden'}
+      overflowY={'scroll'}
       display={'flex'}
       flexDir="column"
     >
@@ -157,30 +157,11 @@ export default function Leaderboard() {
         flex={1}
 
       >
+        <Button onClick={() => history.push('/question')} mt={8} mb={8}>
+          PLAY NOW
+</Button>
         
-        <Heading
-          as="h1"
-          size="xl"
-          mb={0}
-          color="white"
-          fontFamily={'Gilroy-Bold'}
-          mt={'20px'}
-        >
-          Starting soon ..... Stay tuned
-        </Heading>
-      </Flex>
-      <Flex justifyContent={'center'}>
-        <Heading
-          as="h1"
-          size="md"
-          mb={2}
-          color="white"
-          fontFamily={'Gilroy-Bold'}
-          mt={'0px'}
-        >
-          You will get be notified when the game starts
-        </Heading>
-      </Flex>
+       </Flex>
       <Flex justifyContent={'center'} >
         <Text fontFamily={'gilroy'} color={'white'}>
         <HStack
