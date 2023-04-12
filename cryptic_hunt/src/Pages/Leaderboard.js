@@ -41,8 +41,19 @@ export default function Leaderboard() {
   const token = localStorage.getItem('token');
   const [teamID, setTeamID] = useState('0');
   const [teamName, setTeamName] = useState('');
+  const [Values, setValue] = useState([]);
   const [team, setTeam] = useState([]);
   const history = useHistory();
+  const routes = [
+    '/boysnyoblg',
+    '/gcwabuklec',
+    '/mmxiyqtebz',
+    '/udjqhzopat',
+    '/mvpqblridf',
+    '/twvaowyqpo',
+    '/gdmroduldu',
+    '/unrjqlcobn',
+  ];
 
   const handleClick = async event => {
     console.log('clicked');
@@ -70,6 +81,8 @@ export default function Leaderboard() {
         response.data.data.solutions.q7,
         response.data.data.solutions.q10,
       ];
+      setValue(values);
+      const firstFalseIndex = values.findIndex(value => value === false);
       setButtonValues(values);
       setTeam(Team);
       console.log(teamId);
@@ -88,7 +101,14 @@ export default function Leaderboard() {
 
   const [hasCopied, setHasCopied] = useState(false);
   const [buttonValues, setButtonValues] = useState([]);
-
+  function handleButtonClick() {
+    // Find the index of the first false value in the values array
+    const firstFalseIndex = Values.findIndex(value => value === false);
+    console.log(routes[firstFalseIndex]);
+    console.log(firstFalseIndex);
+    // Navigate to the route at the corresponding index
+    history.push(routes[firstFalseIndex]);
+  }
   const onCopy = () => {
     navigator.clipboard.writeText(teamID);
     setHasCopied(true);
@@ -180,7 +200,7 @@ export default function Leaderboard() {
         </Tbody>
       </Table>
       <Flex justifyContent={'center'} flex={1}>
-        <Button onClick={() => history.push('/boysnyoblg')} mt={8} mb={8}>
+        <Button onClick={handleButtonClick} mt={8} mb={8}>
           PLAY NOW
         </Button>
       </Flex>
