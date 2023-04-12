@@ -60,7 +60,7 @@ export default function Register() {
     console.log(username);
     console.log(email);
     console.log(password);
-    if(!isEmailValid){
+    if (!isEmailValid) {
       toast({
         title: 'Error',
         description: 'Invalid Email',
@@ -70,17 +70,18 @@ export default function Register() {
       });
       return;
     }
-    if(!isPasswordValid){
+    if (!isPasswordValid) {
       toast({
         title: 'Error',
-        description: 'Password must contain atleast 8 characters, 1 uppercase, 1 lowercase and 1 number and special character',
+        description:
+          'Password must contain atleast 8 characters, 1 uppercase, 1 lowercase and 1 number and special character',
         status: 'error',
         duration: 5000,
         isClosable: true,
       });
       return;
     }
-    if(username === ''){
+    if (username === '') {
       toast({
         title: 'Error',
         description: 'Invalid Username',
@@ -100,11 +101,10 @@ export default function Register() {
       localStorage.setItem('token', token);
       console.log(response.data.message);
       //response status code
-      if(response.status === 200){
+      if (response.status === 200) {
         history.push('/team');
-      }
-      else{
-        //toast error 
+      } else {
+        //toast error
         toast({
           title: 'Error',
           description: response.data.error,
@@ -188,8 +188,14 @@ export default function Register() {
             </FormControl>
             {isPasswordClicked && !isPasswordValid && (
               <Text color={'red'}>
-                Please enter a valid password with at least 8 characters, one
-                uppercase letter, one lowercase letter, and one number.
+                - 8 characters
+                <br />
+                - Atleast 1 Upper Case letter
+                <br />
+                - Atleast 1 Number
+                <br />
+                - Atleast 1 Special Character
+                <br />
               </Text>
             )}
             {isPasswordClicked && isPasswordValid && (
