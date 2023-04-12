@@ -12,14 +12,16 @@ import {
   Button,
   Flex,
   Text,
+  HStack,
+  useMediaQuery,
+  Spacer,
 } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import { Component } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { FaDiscord } from 'react-icons/fa';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDiscord } from '@fortawesome/free-brands-svg-icons';
+
 
 import { useEffect } from 'react';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -78,8 +80,13 @@ export default function Leaderboard() {
     navigator.clipboard.writeText(teamID);
     setHasCopied(true);
   };
+  const [isLargerThan768] = useMediaQuery("(min-width: 768px)");
   return (
-    <Box p={8} bgColor={'#161615'} h="100vh" w="100vw">
+    <Box p={8} bgColor={'#161615'} h="100vh" w="100vw"
+      overflow={'hidden'}
+      display={'flex'}
+      flexDir="column"
+    >
       {/* <Button onClick={handleClick}>See the id</Button> */}
       {/* <FontAwesomeIcon icon={faCoffee} /> */}
       {/* <FontAwesomeIcon icon={faGithub} /> */}
@@ -116,13 +123,19 @@ export default function Leaderboard() {
         variant="striped"
         bg={tableBgColor}
         borderWidth="1px"
+        
         borderColor={tableBorderColor}
         borderRadius="xl" // Set border radius to make borders curved
-        maxWidth="800px" // Set max width to make table width fixed
+      //maxWidth="800px" // Set max width to make table width fixed
         margin="0 auto" // Center the table
         mt={'20px'}
+        transform={ isLargerThan768 ? '' : 'scale(0.8) translateX(-10%)'
+        }
+        
       >
-        <Thead bg={tableHeadColor} fontFamily={'Gilroy-Medium'}>
+        <Thead bg={tableHeadColor} fontFamily={'Gilroy-Medium'}
+          //width
+        >
           <Tr color="white">
             <Th color="white">Serial No</Th>
             <Th color="white">Username</Th>
@@ -139,7 +152,12 @@ export default function Leaderboard() {
           ))}
         </Tbody>
       </Table>
-      <Flex justifyContent={'center'}>
+      <Flex justifyContent={'center'}
+        
+        flex={1}
+
+      >
+        
         <Heading
           as="h1"
           size="xl"
@@ -163,16 +181,23 @@ export default function Leaderboard() {
           You will get be notified when the game starts
         </Heading>
       </Flex>
-      <Flex justifyContent={'center'} m>
+      <Flex justifyContent={'center'} >
         <Text fontFamily={'gilroy'} color={'white'}>
-          For any queries or doubts join our{' '}
-          <a href="https://discord.gg/2dFfgQFGCs">DISCORD</a>{' '}
+        <HStack
+            w={'100%'}
+          >
+            <Text>For any queries open a ticket on our{' '}</Text>
+          
+          
+          <a href="https://discord.gg/2dFfgQFGCs">DISCORD </a>{' '}
+          <FaDiscord
+              size={30}
+            />
+         
+         </HStack>
         </Text>
-        <Text>
-          <a>
-            <FaDiscord />
-          </a>{' '}
-        </Text>
+        
+       
       </Flex>
     </Box>
   );
