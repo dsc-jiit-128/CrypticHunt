@@ -160,7 +160,7 @@ export default function Leaderboard() {
         <Button onClick={() => history.push('/question')} mt={8} mb={8}>
           PLAY NOW
 </Button>
-        
+  
        </Flex>
       <Flex justifyContent={'center'} >
         <Text fontFamily={'gilroy'} color={'white'}>
