@@ -82,7 +82,7 @@ export default function Leaderboard() {
     <Box p={8} bgColor={'#161615'} h="100vh" w="100vw">
       {/* <Button onClick={handleClick}>See the id</Button> */}
       {/* <FontAwesomeIcon icon={faCoffee} /> */}
-        {/* <FontAwesomeIcon icon={faGithub} /> */}
+      {/* <FontAwesomeIcon icon={faGithub} /> */}
       <Flex alignItems={'center'} justifyContent={'center'}>
         {teamID !== '0' && ( // display the team ID only if it's not the default value
           <Text
@@ -95,11 +95,11 @@ export default function Leaderboard() {
             Your team ID is: {teamID}
           </Text>
         )}
-       <Button onClick={onCopy} ml={4}>
-          {hasCopied ? "Copied!" : "Copy"}
+        <Button onClick={onCopy} ml={4}>
+          {hasCopied ? 'Copied!' : 'Copy'}
         </Button>
       </Flex>
-      
+
       <Center>
         <Heading
           as="h1"
@@ -149,7 +149,6 @@ export default function Leaderboard() {
           mt={'20px'}
         >
           Starting soon ..... Stay tuned
-          
         </Heading>
       </Flex>
       <Flex justifyContent={'center'}>
@@ -165,8 +164,15 @@ export default function Leaderboard() {
         </Heading>
       </Flex>
       <Flex justifyContent={'center'} m>
-        <Text fontFamily={'gilroy'} color={'white'} >For any queries or doubts join our <a href='https://discord.gg/Dy3MVM2'>DISCORD</a>  </Text>
-        <Text><a><FaDiscord /></a> </Text>
+        <Text fontFamily={'gilroy'} color={'white'}>
+          For any queries or doubts join our{' '}
+          <a href="https://discord.gg/2dFfgQFGCs">DISCORD</a>{' '}
+        </Text>
+        <Text>
+          <a>
+            <FaDiscord />
+          </a>{' '}
+        </Text>
       </Flex>
     </Box>
   );
