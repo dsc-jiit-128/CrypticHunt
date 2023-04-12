@@ -3,6 +3,7 @@ package services
 import (
 	"context"
 	"errors"
+	"fmt"
 	"strings"
 	"time"
 
@@ -182,13 +183,15 @@ func (u *ServiceImpl) JoinNewTeam(user string, joinid string) error {
 	if !userFound.Team.IsZero() {
 		return errors.New("you are member to some team, You can't join another team, to join a team create a new account")
 	}
+	joinobjectid, err := primitive.ObjectIDFromHex(joinid)
 
 	var users []*models.User
-	query = bson.D{bson.E{Key: "team", Value: userFound.Team}}
+	query = bson.D{bson.E{Key: "team", Value: joinobjectid}}
 	cursor, err := u.usercollection.Find(u.ctx, query)
 	if err != nil {
 		return err
 	}
+
 	for cursor.Next(u.ctx) {
 		var user models.User
 		err := cursor.Decode(&user)
@@ -207,11 +210,11 @@ func (u *ServiceImpl) JoinNewTeam(user string, joinid string) error {
 	if err != nil {
 		return err
 	}
+	fmt.Println(users)
 	if len(users) > 5 {
 		return errors.New("Max number of team members reached")
 	}
 
-	joinobjectid, err := primitive.ObjectIDFromHex(joinid)
 	if err != nil {
 		return err
 	}
@@ -326,7 +329,7 @@ func (u *ServiceImpl) TeamLeaderboardData(user string) (map[string]interface{}, 
 		"user":      userFound,
 		"team":      users,
 		"solutions": solutions,
-		"teamData": teamData,
+		"teamData":  teamData,
 	}
 	return data, nil
 }
