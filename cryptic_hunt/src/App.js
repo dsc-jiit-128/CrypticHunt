@@ -69,8 +69,14 @@ function App() {
         {<Route path="/" exact component={Home} />}
         {<Route path="/team" exact component={Team} />}
         {<Route path="/register" exact component={Register} />}
-        {<Route path="/question" exact component={Question} />}
-        {<Route path="/question2" exact component={Question2} />}
+        {<Route path="/boysnyoblg" exact component={Question} />}
+        {<Route path="/gcwabuklec" exact component={Question2} />}
+        {<Route path="/mmxiyqtebz" exact component={Question3} />}
+        {<Route path="/udjqhzopat" exact component={Question4} />}
+        {<Route path="/mvpqblridf" exact component={Question5} />}
+        {<Route path="/twvaowyqpo" exact component={Question6} />}
+        {<Route path="/gdmroduldu" exact component={Question7} />}
+        {<Route path="/unrjqlcobn" exact component={Question8} />}
         {<Route path="/leaderboard" exact component={Leaderboard} />}
       </ChakraProvider>
     </>
