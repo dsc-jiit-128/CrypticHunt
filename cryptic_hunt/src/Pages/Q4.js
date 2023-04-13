@@ -35,7 +35,6 @@ export default function Question3() {
         { answer: ans },
         { headers: { Authorization: `Bearer ${token}` } }
       );
-      console.log(response.data);
       toast({
         title: 'Correct Answer',
         description: response.data.message,

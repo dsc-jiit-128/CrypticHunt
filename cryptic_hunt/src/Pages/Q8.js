@@ -44,7 +44,6 @@ export default function Question8() {
       });
       history.replace('/leaderboard');
     } catch (error) {
-      console.log(error);
       toast({
         title: 'Try Again',
         description: error.response.data.error,

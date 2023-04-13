@@ -45,7 +45,6 @@ export default function Question3() {
       });
       history.replace('/unrjqlcobn');
     } catch (error) {
-      console.log(error);
       toast({
         title: 'Try Again',
         description: error.response.data.error,
