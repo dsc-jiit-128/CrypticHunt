@@ -1,5 +1,5 @@
 import React from 'react';
-import ChakraProvider from '@chakra-ui/react';
+import ChakraProvider, { useToast } from '@chakra-ui/react';
 import {
   Box,
   Link,
@@ -18,6 +18,7 @@ import { useHistory } from 'react-router-dom';
 
 export default function Question() {
   axios.defaults.baseURL = 'https://cypher-dash.herokuapp.com/';
+  const toast = useToast();
   const [answer, setAnswer] = useState('');
   const history = useHistory();
   const handleSubmit = async event => {
@@ -29,6 +30,7 @@ export default function Question() {
     console.log(ans);
     console.log(teamId);
     console.log(token);
+    if(ans == "") return;
     try {
       const response = await axios.post(
         `/api/v2/question/q1`,
@@ -36,9 +38,26 @@ export default function Question() {
         { headers: { Authorization: `Bearer ${token}` } }
       );
       console.log(response.data);
+      toast({
+        title: 'Correct Answer',
+        description: response.data.message,
+        
+        status: 'success',
+        duration: 5000,
+        isClosable: true,
+      });
       history.replace('/gcwabuklec');
     } catch (error) {
       console.log(error);
+      toast({
+        title: 'Try Again',
+        description: error.response.data.error,
+        
+        status: 'error',
+        duration: 5000,
+        isClosable: true,
+      });
+
     }
   };
 

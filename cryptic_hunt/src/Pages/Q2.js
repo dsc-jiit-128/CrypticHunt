@@ -1,5 +1,5 @@
 import React from 'react';
-import ChakraProvider from '@chakra-ui/react';
+import ChakraProvider, { useToast } from '@chakra-ui/react';
 import {
   Box,
   Link,
@@ -18,6 +18,7 @@ import { useHistory } from 'react-router-dom';
 
 import '../App.css';
 export default function Question2() {
+  const toast = useToast();
   axios.defaults.baseURL = 'https://cypher-dash.herokuapp.com/';
   const [answer, setAnswer] = useState('');
   const history = useHistory();
@@ -30,6 +31,7 @@ export default function Question2() {
     console.log(ans);
     console.log(teamId);
     console.log(token);
+    if(ans == "") return;
     try {
       const response = await axios.post(
         `/api/v2/question/q2`,
@@ -37,9 +39,25 @@ export default function Question2() {
         { headers: { Authorization: `Bearer ${token}` } }
       );
       console.log(response.data);
+      toast({
+        title: 'Correct Answer',
+        description: response.data.message,
+        
+        status: 'success',
+        duration: 5000,
+        isClosable: true,
+      });
       history.replace('/mmxiyqtebz');
     } catch (error) {
       console.log(error);
+      toast({
+        title: 'Try Again',
+        description: error.response.data.error,
+        
+        status: 'error',
+        duration: 5000,
+        isClosable: true,
+      });
     }
   };
   return (
@@ -75,7 +93,16 @@ export default function Question2() {
             >
              
  Question 2: The sound of silence <br></br>
-<a href=" https://youtu.be/x_PHcY8_EVk">Listen Closely. </a> 
+ <Text
+  color="blue.200"
+  //underline="true"
+  underlineColor="blue"
+ >
+ <a 
+
+href=" https://youtu.be/x_PHcY8_EVk">Listen Closely. </a> 
+ </Text>
+
             </Text>
 
             <Stack spacing={4} w='50%' align={'center'} >

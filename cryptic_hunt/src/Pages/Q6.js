@@ -16,7 +16,9 @@ import '../App.css';
 import axios from 'axios';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { useToast } from '@chakra-ui/react';
 export default function Question3() {
+  const toast = useToast();
   axios.defaults.baseURL = 'https://cypher-dash.herokuapp.com/';
   const [answer, setAnswer] = useState('');
   const history = useHistory();
@@ -29,6 +31,7 @@ export default function Question3() {
     console.log(ans);
     console.log(teamId);
     console.log(token);
+    if(ans == "") return;
     try {
       const response = await axios.post(
         `/api/v2/question/q6`,
@@ -36,9 +39,25 @@ export default function Question3() {
         { headers: { Authorization: `Bearer ${token}` } }
       );
       console.log(response.data);
+      toast({
+        title: 'Correct Answer',
+        description: response.data.message,
+        
+        status: 'success',
+        duration: 5000,
+        isClosable: true,
+      });
       history.replace('/gdmroduldu');
     } catch (error) {
       console.log(error);
+      toast({
+        title: 'Try Again',
+        description: error.response.data.error,
+        
+        status: 'error',
+        duration: 5000,
+        isClosable: true,
+      });
     }
   };
   return (
