@@ -156,7 +156,7 @@ export default function Leaderboard() {
           Team Name: {teamName}
         </Heading>
       </Center>
-      <HStack spacing={4} mt={'20px'}>
+      <HStack spacing={4} mt={'20px'} justifyContent={'center'}>
         {buttonValues.map((value, index) => (
           <Box
             key={index}
