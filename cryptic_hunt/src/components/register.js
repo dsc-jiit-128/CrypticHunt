@@ -41,7 +41,7 @@ export default function Register() {
 
   const handlePasswordChange = e => {
     const value = e.target.value;
-    const pattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+    const pattern =    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[|)(@\<{}>[\]/$!%*?:;.,=&_#~"'`^+-])[A-Za-z\d|)(@\<{}>[\]/$!%*?:;.,=&_#~"'`^+-]{8,}$/;
 
     setPassword(value);
     setIsPasswordValid(pattern.test(value));
