@@ -71,6 +71,16 @@ export default function Question3() {
         bgSize='cover'
         bgPosition='center'
       >
+         <VStack 
+          pos={'absolute'}
+          top={10}
+        >
+          <Button
+            onClick={() => history.replace('/leaderboard')}
+          >
+            LEADERBOARD
+          </Button>
+        </VStack>
         <Box
           background={'rgba(255, 255, 255, 0.3)'}
           backdropFilter={'blur(10px)'}
