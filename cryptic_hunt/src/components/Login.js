@@ -31,8 +31,6 @@ export default function SimpleCard() {
   const history = useHistory();
   const handleLogin = async event => {
     event.preventDefault();
-    console.log(username);
-    console.log(password);
 
     try {
       const response = await axios.post('/api/v1/user/login', {
