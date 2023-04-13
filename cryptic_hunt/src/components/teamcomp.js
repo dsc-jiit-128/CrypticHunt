@@ -36,8 +36,6 @@ export default function Teamcomp() {
           },
         }
       );
-      console.log(response);
-      console.log(response.data.message);
       if(response.status === 200){
         toast({
           title: 'Team Created',
@@ -75,7 +73,6 @@ export default function Teamcomp() {
   };
   const handleJoinTeamClick = async event => {
     event.preventDefault();
-    console.log(teamcode);
     if(teamcode === ''){
       toast({
         title: 'Error',
@@ -96,8 +93,6 @@ export default function Teamcomp() {
           },
         }
       );
-      console.log(response);
-      console.log(response.data.message);
       if(response.status === 200){
         toast({
           title: 'Team Joined',

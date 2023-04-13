@@ -57,9 +57,6 @@ export default function Register() {
   const history = useHistory();
   const handleRegister = async e => {
     e.preventDefault();
-    console.log(username);
-    console.log(email);
-    console.log(password);
     if (!isEmailValid) {
       toast({
         title: 'Error',
@@ -99,7 +96,6 @@ export default function Register() {
       });
       const token = response.data.data.token;
       localStorage.setItem('token', token);
-      console.log(response.data.message);
       //response status code
       if (response.status === 200) {
         history.push('/team');

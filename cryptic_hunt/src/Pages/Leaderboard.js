@@ -56,7 +56,6 @@ export default function Leaderboard() {
   ];
 
   const handleClick = async event => {
-    console.log('clicked');
     // event.preventDefault();
     try {
       const response = await axios.get('/api/v2/team/leaderboard', {
@@ -65,12 +64,10 @@ export default function Leaderboard() {
         },
       });
       const Team = response.data.data.team;
-      console.log(response);
-      console.log(Team[0].email);
+
       const teamId = response.data.data.user.team;
       const teamname = response.data.data.teamData.name;
-      console.log(teamname);
-      setTeamName(teamname);
+      
       const values = [
         response.data.data.solutions.q1,
         response.data.data.solutions.q2,
@@ -85,13 +82,10 @@ export default function Leaderboard() {
       const firstFalseIndex = values.findIndex(value => value === false);
       setButtonValues(values);
       setTeam(Team);
-      console.log(teamId);
       localStorage.setItem('teamId', teamId);
       setTeamID(teamId);
       // console.log(response?.data?.data?.token);
-      console.log(response.data.message); // handle successful response
     } catch (error) {
-      console.log(error); // handle error
     }
   };
 
@@ -104,8 +98,7 @@ export default function Leaderboard() {
   function handleButtonClick() {
     // Find the index of the first false value in the values array
     const firstFalseIndex = Values.findIndex(value => value === false);
-    console.log(routes[firstFalseIndex]);
-    console.log(firstFalseIndex);
+    
     // Navigate to the route at the corresponding index
     history.push(routes[firstFalseIndex]);
   }

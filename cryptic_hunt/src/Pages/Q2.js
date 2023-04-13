@@ -26,11 +26,7 @@ export default function Question2() {
     const teamId = localStorage.getItem('teamId');
     const token = localStorage.getItem('token');
     event.preventDefault();
-    console.log(answer);
     const ans = answer.toUpperCase();
-    console.log(ans);
-    console.log(teamId);
-    console.log(token);
     if(ans == "") return;
     try {
       const response = await axios.post(

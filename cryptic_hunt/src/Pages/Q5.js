@@ -25,11 +25,8 @@ export default function Question3() {
     const teamId = localStorage.getItem('teamId');
     const token = localStorage.getItem('token');
     event.preventDefault();
-    console.log(answer);
     const ans = answer.toUpperCase();
-    console.log(ans);
-    console.log(teamId);
-    console.log(token);
+    
     if(ans == "") return;
     try {
       const response = await axios.post(
@@ -37,7 +34,6 @@ export default function Question3() {
         { answer: ans },
         { headers: { Authorization: `Bearer ${token}` } }
       );
-      console.log(response.data);
       toast({
         title: 'Correct Answer',
         description: response.data.message,

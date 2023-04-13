@@ -40,7 +40,6 @@ export default function SimpleCard() {
       const token = response.data.data.token;
       const team = response.data.data.isteam;
       localStorage.setItem('token', token);
-      console.log(response);
       if (response.data.message === 'Login verified' && team === false) {
         history.push('/team');
       } else if (response.data.message === 'Login verified' && team ===true) {
@@ -59,9 +58,7 @@ export default function SimpleCard() {
 
       }
       // console.log(response?.data?.data?.token);
-      console.log(response.data.message); // handle successful response
     } catch (error) {
-      console.log(error); // handle error
       toast({
         title: 'Error',
         description: 'Invalid Credentials',
